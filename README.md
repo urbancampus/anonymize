@@ -1,4 +1,4 @@
-# anonymize [![Go Reference](https://pkg.go.dev/badge/github.com/emmanuelay/anonymize.svg)](https://pkg.go.dev/github.com/emmanuelay/anonymize) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d3422b218ee49e49ffe359b88ea2a5f)](https://www.codacy.com/gh/emmanuelay/anonymize/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=emmanuelay/anonymize&amp;utm_campaign=Badge_Grade)
+# anonymize [![Go Reference](https://pkg.go.dev/badge/github.com/emmanuelay/anonymize.svg)](https://pkg.go.dev/github.com/emmanuelay/anonymize) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d3422b218ee49e49ffe359b88ea2a5f)](https://www.codacy.com/gh/emmanuelay/anonymize/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=emmanuelay/anonymize&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/9d3422b218ee49e49ffe359b88ea2a5f)](https://www.codacy.com/gh/emmanuelay/anonymize/dashboard?utm_source=github.com&utm_medium=referral&utm_content=emmanuelay/anonymize&utm_campaign=Badge_Coverage)
 
 Small and simple package for anonymizing names, e-mails and domains
 
