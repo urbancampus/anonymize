@@ -9,12 +9,18 @@ import (
 
 func TestAnonymizeName(t *testing.T) {
 	tests := []struct {
-		got  string
-		want string
+		got      string
+		want     string
+		anonRune rune
 	}{
 		{
 			got:  "Emmanuel Ay",
 			want: "E******* A*",
+		},
+		{
+			got:      "Emmanuel Ay",
+			want:     "E••••••• A•",
+			anonRune: '•',
 		},
 		{
 			got:  "Em Ay",
@@ -59,7 +65,14 @@ func TestAnonymizeName(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := anonymize.Name(test.got)
+		var result string
+
+		if test.anonRune > 0 {
+			result = anonymize.NameWithCustomRune(test.got, test.anonRune)
+		} else {
+			result = anonymize.Name(test.got)
+		}
+
 		if !strings.EqualFold(test.want, result) {
 			t.Errorf("Incorrect result for '%v': got '%v', want '%v'", test.got, result, test.want)
 		}
