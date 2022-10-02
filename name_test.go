@@ -43,6 +43,10 @@ func TestAnonymizeName(t *testing.T) {
 			want: "",
 		},
 		{
+			got:  "",
+			want: "",
+		},
+		{
 			got:  "Emmanuel von Ay",
 			want: "E******* v** A*",
 		},
