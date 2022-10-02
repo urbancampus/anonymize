@@ -36,10 +36,49 @@ func main() {
 ..this will result in the following output:
 
 ```sh
-John Doe: J*** D**
-john.doe@gmail.com: j***.d**@g****.com
-www.john-doe.com: www.j***-d**.com
+John Doe : J*** D**
+john.doe@gmail.com : j***.d**@g****.com
+www.john-doe.com : www.j***-d**.com
 ```
+
+### Using a custom rune
+
+If you want to change the anonymization character/rune, there are methods that allow this:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/emmanuelay/anonymize"
+)
+
+func main() {
+	name := "John Doe"
+	anonymousName := anonymize.NameWithCustomRune(name, '•')
+	fmt.Println(name, ":", anonymousName)
+
+	email := "john.doe@gmail.com"
+	anonymousEmail := anonymize.EmailWithCustomRune(email, 'x')
+	fmt.Println(email, ":", anonymousEmail)
+
+	domain := "www.john-doe.com"
+	anonymousDomain := anonymize.DomainWithCustomRune(domain, '⚪')
+	fmt.Println(domain, ":", anonymousDomain)
+}
+
+```
+
+..this will result in the following output:
+
+```sh
+John Doe : J••• D••
+john.doe@gmail.com : jxxx.dxx@gxxxx.com
+www.john-doe.com : www.j⚪⚪⚪-d⚪⚪.com
+```
+
+
 
 ## Contribute
 
