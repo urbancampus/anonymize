@@ -1,4 +1,4 @@
-// Anonymize is a small and simple package for anonymizing names, e-mails and domains.
+// Package Anonymize is a small and simple package for anonymizing names, e-mails and domains.
 //
 // Pass strings to anonymize to the provided public methods: 'Name', 'Email' or 'Domain'.
 // Strings are by default anonymized using the asterix character, provide your own anonymization
