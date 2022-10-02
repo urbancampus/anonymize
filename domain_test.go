@@ -9,12 +9,17 @@ import (
 
 func TestAnonymizeDomain(t *testing.T) {
 	tests := []struct {
-		got  string
-		want string
+		got      string
+		want     string
+		anonRune rune
 	}{
 		{
 			got:  "www.somedomain.com",
 			want: "www.s*********.com",
+		},
+		{
+			got:  "  ",
+			want: "",
 		},
 		{
 			got:  "f.com",
@@ -44,10 +49,22 @@ func TestAnonymizeDomain(t *testing.T) {
 			got:  "domain.com",
 			want: "d*****.com",
 		},
+		{
+			got:      "www.domain.com",
+			want:     "www.d•••••.com",
+			anonRune: '•',
+		},
 	}
 
 	for _, test := range tests {
-		result := anonymize.Domain(test.got)
+		var result string
+
+		if test.anonRune > 0 {
+			result = anonymize.DomainWithCustomRune(test.got, test.anonRune)
+		} else {
+			result = anonymize.Domain(test.got)
+		}
+
 		if !strings.EqualFold(test.want, result) {
 			t.Errorf("Incorrect result for '%v': got '%v', want '%v'", test.got, result, test.want)
 		}

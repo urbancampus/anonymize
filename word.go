@@ -1,14 +1,19 @@
+// Package Anonymize is a small and simple package for anonymizing names, e-mails and domains.
+//
 // Copyright 2022 Emmanuel Ay. All rights reserved.
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
 
 package anonymize
 
-import "unicode"
+import (
+	"strings"
+	"unicode"
+)
 
 func processWord(input string, allowSingleToken bool, anontoken rune) string {
 
-	if len(input) == 0 {
+	if len(input) == 0 || len(strings.TrimSpace(input)) == 0 {
 		return ""
 	}
 

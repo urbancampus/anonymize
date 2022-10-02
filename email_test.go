@@ -9,8 +9,9 @@ import (
 
 func TestAnonymizeEmail(t *testing.T) {
 	tests := []struct {
-		got  string
-		want string
+		got      string
+		want     string
+		anonRune rune
 	}{
 		{
 			got:  "emmanuel@somedomain.com",
@@ -19,6 +20,10 @@ func TestAnonymizeEmail(t *testing.T) {
 		{
 			got:  "this.is.incorrect@domain@domain.com",
 			want: "t***.i*.i********@d*****@d*****.com",
+		},
+		{
+			got:  "  ",
+			want: "",
 		},
 		{
 			got:  "e@f.com",
@@ -64,10 +69,22 @@ func TestAnonymizeEmail(t *testing.T) {
 			got:  "Luke.SkyWalker@McDonalds.com",
 			want: "L***.S**W*****@M*D******.com",
 		},
+		{
+			got:      "jane.doe@gmail.com",
+			want:     "j•••.d••@g••••.com",
+			anonRune: '•',
+		},
 	}
 
 	for _, test := range tests {
-		result := anonymize.Email(test.got)
+		var result string
+
+		if test.anonRune > 0 {
+			result = anonymize.EmailWithCustomRune(test.got, test.anonRune)
+		} else {
+			result = anonymize.Email(test.got)
+		}
+
 		if !strings.EqualFold(test.want, result) {
 			t.Errorf("Incorrect result for '%v': got '%v', want '%v'", test.got, result, test.want)
 		}

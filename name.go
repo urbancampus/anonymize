@@ -1,3 +1,5 @@
+// Package Anonymize is a small and simple package for anonymizing names, e-mails and domains.
+//
 // Copyright 2022 Emmanuel Ay. All rights reserved.
 // Use of this source code is governed by a MIT style
 // license that can be found in the LICENSE file.
@@ -19,9 +21,6 @@ func NameWithCustomRune(input string, anonRune rune) string {
 }
 
 func processName(input string, anonRune rune) string {
-	if len(input) == 0 || len(strings.TrimSpace(input)) == 0 {
-		return ""
-	}
 
 	parts := strings.Split(input, " ")
 
