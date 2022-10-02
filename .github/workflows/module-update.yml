@@ -14,5 +14,5 @@ jobs:
     name: Renew documentation
     runs-on: ubuntu-latest
     steps:
-    - name: Pull new module version
-      uses: andrewslotin/go-proxy-pull-action@master
+      - name: Pull new module version
+        uses: andrewslotin/go-proxy-pull-action@master
