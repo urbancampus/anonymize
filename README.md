@@ -4,7 +4,7 @@ Small and simple package for anonymizing names, e-mails and domains
 
 ## Installation
 
-```go
+```sh
 go get -u github.com/emmanuelay/anonymize
 ```
 
