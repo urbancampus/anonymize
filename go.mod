@@ -1,3 +1,3 @@
-module github.com/emmanuelay/anonymize
+module github.com/urbancampus/anonymize
 
 go 1.19
